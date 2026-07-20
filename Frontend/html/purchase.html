@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Purchases — Inventory Management System</title>
+  <meta name="description" content="Create and manage inventory purchases from suppliers.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="app-layout">
+    <nav class="pegboard-nav">
+      <div class="nav-brand"><svg class="brand-icon" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="15" stroke="#EAE4D8" stroke-width="2" fill="none"/><path d="M 7 26 A 13 13 0 0 1 29 26" stroke="#4a4a40" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M 7 26 A 13 13 0 0 1 24 10" stroke="#EAE4D8" stroke-width="3" fill="none" stroke-linecap="round"/><line x1="18" y1="18" x2="22" y2="11" stroke="#C8862B" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" fill="#C8862B"/></svg><h2>IMS</h2></div>
+      <ul class="nav-links">
+        <li><a href="dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg><span>Dashboard</span></a></li>
+        <li><a href="products.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg><span>Products</span></a></li>
+        <li><a href="category.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/></svg><span>Categories</span></a></li>
+        <li><a href="suppliers.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg><span>Suppliers</span></a></li>
+        <li><a href="customers.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><span>Customers</span></a></li>
+        <li><a href="purchase.html" class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>Purchases</span></a></li>
+        <li><a href="sales.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg><span>Sales</span></a></li>
+        <li><a href="report.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span>Reports</span></a></li>
+      </ul>
+      <div class="nav-footer"><div class="user-info"><div class="user-avatar">A</div><div class="user-details"><div class="user-name">Admin</div><div class="user-role">admin</div></div></div><button class="btn-logout" id="btn-logout">Sign Out</button></div>
+    </nav>
+
+    <main class="main-content">
+      <header class="top-bar"><span class="page-title">Purchases</span><div class="top-bar-actions"></div></header>
+      <div class="page-content">
+
+        <!-- Purchase History -->
+        <div id="purchase-history">
+          <div class="page-header">
+            <h1>Purchase History</h1>
+            <button class="btn btn-primary" id="btn-new-purchase">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              New Purchase
+            </button>
+          </div>
+          <div class="dense-table-wrapper">
+            <table class="dense-table">
+              <thead><tr><th>ID</th><th>Supplier</th><th>Amount</th><th>Items</th><th>Date</th></tr></thead>
+              <tbody id="purchases-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Purchase Builder (two-column) -->
+        <div id="purchase-builder" class="hidden">
+          <div class="page-header">
+            <h1>New Purchase</h1>
+            <button class="btn btn-outline" id="btn-back-to-list">← Back to List</button>
+          </div>
+
+          <div class="builder-layout">
+            <!-- Product Picker -->
+            <div class="builder-picker">
+              <div class="form-group">
+                <label for="purchase-supplier">Supplier</label>
+                <select id="purchase-supplier"><option value="">Select supplier...</option></select>
+              </div>
+              <hr style="border:none;border-top:1px solid var(--line);margin:16px 0;">
+              <h3 style="font-size:0.87rem;margin-bottom:12px;">Add Items</h3>
+              <div class="form-group">
+                <label for="item-product">Product</label>
+                <select id="item-product"><option value="">Select product...</option></select>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="item-qty">Quantity</label>
+                  <input type="number" id="item-qty" min="1" value="1">
+                </div>
+                <div class="form-group">
+                  <label for="item-price">Unit Price</label>
+                  <input type="number" id="item-price" step="0.01" min="0" placeholder="0.00">
+                </div>
+              </div>
+              <button class="btn btn-accent" id="btn-add-item" style="width:100%;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                Add to Order
+              </button>
+            </div>
+
+            <!-- Receipt Summary -->
+            <div class="builder-receipt">
+              <div class="receipt-header">
+                <h3>Purchase Order</h3>
+              </div>
+              <div class="receipt-items" id="receipt-items">
+                <div style="text-align:center;color:#888;padding:16px;font-size:0.8rem;">No items added</div>
+              </div>
+              <div class="receipt-total">
+                <span>TOTAL</span>
+                <span id="receipt-total-amount">₹0.00</span>
+              </div>
+              <button class="btn btn-primary" id="btn-submit-purchase" style="width:100%;margin-top:16px;">
+                Submit Purchase
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/ui/toast.js"></script>
+  <script src="../js/auth-check.js"></script>
+  <script src="../js/purchase.js"></script>
+</body>
+</html>
