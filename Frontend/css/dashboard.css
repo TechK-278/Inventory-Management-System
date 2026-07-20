@@ -1,0 +1,247 @@
+/* ============================================================
+   DASHBOARD STYLES — Gauge Row + Activity List
+   §8.3 Signature Element: Radial gauge motif
+   ============================================================ */
+
+/* ---- Gauge Row ---- */
+.gauge-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.gauge-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  transition: all var(--transition-fast);
+}
+
+.gauge-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-light);
+}
+
+.gauge-card .gauge-svg-container {
+  width: 100px;
+  height: 80px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.gauge-card .gauge-info {
+  flex: 1;
+}
+
+.gauge-card .gauge-label {
+  font-family: var(--font-display);
+  font-weight: var(--fw-medium);
+  font-size: 0.73rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+  margin-bottom: var(--space-xs);
+}
+
+.gauge-card .gauge-value {
+  font-family: var(--font-mono);
+  font-weight: var(--fw-bold);
+  font-size: 1.8rem;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: var(--space-xs);
+}
+
+.gauge-card .gauge-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  color: #888;
+}
+
+/* ---- Dashboard Summary Cards Row ---- */
+.summary-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.summary-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  transition: all var(--transition-fast);
+}
+
+.summary-card:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.summary-card .card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.summary-card .card-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.summary-card .card-icon.icon-blue {
+  background: rgba(53, 86, 107, 0.1);
+  color: var(--primary);
+}
+
+.summary-card .card-icon.icon-green {
+  background: rgba(79, 121, 66, 0.1);
+  color: var(--success);
+}
+
+.summary-card .card-icon.icon-amber {
+  background: rgba(200, 134, 43, 0.1);
+  color: var(--accent);
+}
+
+.summary-card .card-icon.icon-red {
+  background: rgba(154, 51, 36, 0.1);
+  color: var(--danger);
+}
+
+.summary-card .card-info .card-count {
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  font-weight: var(--fw-bold);
+  color: var(--ink);
+}
+
+.summary-card .card-info .card-label {
+  font-family: var(--font-display);
+  font-size: 0.73rem;
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+}
+
+/* ---- Activity Lists ---- */
+.activity-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.activity-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.activity-panel-header {
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+}
+
+.activity-list {
+  list-style: none;
+}
+
+.activity-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-sm) var(--space-lg);
+  border-bottom: 1px solid var(--line-light);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  transition: background var(--transition-fast);
+}
+
+.activity-list li:last-child {
+  border-bottom: none;
+}
+
+.activity-list li:hover {
+  background: var(--surface-hover);
+}
+
+.activity-list .activity-label {
+  color: var(--ink);
+}
+
+.activity-list .activity-amount {
+  font-weight: var(--fw-medium);
+  color: var(--success);
+}
+
+.activity-list .activity-amount.expense {
+  color: var(--danger);
+}
+
+.activity-list .activity-date {
+  color: #888;
+  font-size: 0.73rem;
+  margin-left: var(--space-sm);
+}
+
+/* ---- Low Stock Table ---- */
+.low-stock-section {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.low-stock-header {
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.low-stock-header h3 {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--danger);
+}
+
+.low-stock-header .badge {
+  background: rgba(154, 51, 36, 0.12);
+  color: var(--danger);
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  font-weight: var(--fw-medium);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+@media (max-width: 768px) {
+  .activity-section {
+    grid-template-columns: 1fr;
+  }
+}

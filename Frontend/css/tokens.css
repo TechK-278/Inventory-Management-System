@@ -1,0 +1,66 @@
+/* ============================================================
+   DESIGN TOKENS — Inventory Management System
+   Based on Design.md §8.2
+   Warehouse/garage-built vocabulary, not generic SaaS
+   ============================================================ */
+
+:root {
+  /* Color Tokens */
+  --canvas: #EAE4D8;         /* Warehouse Putty — page background */
+  --ink: #242620;             /* Panel Ink — primary text, dark surfaces */
+  --primary: #35566B;         /* Manifest Blue — primary actions, nav, links */
+  --primary-hover: #2a4556;   /* Darker primary for hover states */
+  --primary-light: #4a7089;   /* Lighter primary for subtle highlights */
+  --accent: #C8862B;          /* Signal Amber — warnings, gauge needles, highlights */
+  --accent-hover: #b0751f;    /* Darker accent for hover */
+  --success: #4F7942;         /* Stock Green — in-stock, positive deltas */
+  --success-light: #5d8e4e;   /* Lighter success */
+  --danger: #9A3324;          /* Rust Red — out-of-stock, delete, destructive */
+  --danger-hover: #832b1e;    /* Darker danger for hover */
+  --line: #C9BFAE;            /* Hairline Sand — borders, dividers, table rules */
+  --line-light: #d8d0c2;      /* Lighter border */
+
+  /* Surface tokens */
+  --surface: #F2EDE4;         /* Slightly lighter than canvas for cards */
+  --surface-hover: #ECE6DA;   /* Card hover state */
+  --surface-dark: #2C2E28;    /* Dark surface for nav */
+
+  /* Typography — Google Fonts loaded in HTML */
+  --font-display: 'Space Grotesk', sans-serif;   /* Display, headers, panel labels */
+  --font-body: 'Public Sans', sans-serif;         /* Body text, forms, table cells */
+  --font-mono: 'IBM Plex Mono', monospace;        /* SKUs, barcodes, quantities, prices */
+
+  /* Font weights */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+
+  /* Spacing scale */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  /* Border radius — deliberate, not scattered */
+  --radius-sm: 3px;           /* Data-dense elements: table cells, inputs */
+  --radius-md: 6px;           /* Cards, panels */
+  --radius-lg: 10px;          /* Larger card containers */
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(36, 38, 32, 0.08);
+  --shadow-md: 0 4px 12px rgba(36, 38, 32, 0.1);
+  --shadow-lg: 0 8px 24px rgba(36, 38, 32, 0.12);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+
+  /* Layout */
+  --nav-width: 220px;
+  --nav-collapsed-width: 72px;
+  --topbar-height: 56px;
+}
